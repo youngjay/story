@@ -4,14 +4,6 @@ var events = require('backbone-events');
 var obj = {
     container: {},
 
-    add1: function(n, callback) {
-        callback(n + this.num);
-    },
-
-    getNumber: function() {
-        return this.num;
-    },
-
     log: function(o) {
         console.log('log:' + o)
         return o;
@@ -21,8 +13,6 @@ var obj = {
         console.log('write:' + o)
         return o;
     },
-
-    num: 1001,
 
     element: Object.create(events),
 

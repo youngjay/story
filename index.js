@@ -43,7 +43,7 @@ var Story = mixin(
             return s;
         }
     }
-)
+);
 
 var Statement = mixin(
     function(context, statement, consumer) {
