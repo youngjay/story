@@ -7,14 +7,18 @@ var mockajax = function(url, data, callback) {
     })
 }
 
-var CustomizeStory = Story.extend({
-    '@ajax': function(args) {
-        var url = args[0];
-        this.callbacks.push(function(data, callback) {
-            mockajax(url, data, callback)
-        })
-    }
-})
+var CustomizeStory = function() {
+    Story.apply(this, arguments);
+};
+
+CustomizeStory.prototype = Object.create(Story.prototype);
+CustomizeStory.prototype.constructor = CustomizeStory;
+CustomizeStory.prototype['@ajax'] = function(args) {
+    var url = args[0];
+    this.callbacks.push(function(data, callback) {
+        mockajax(url, data, callback)
+    })
+};
 
 var obj = {
     container: {},
