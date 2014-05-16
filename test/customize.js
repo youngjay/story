@@ -13,17 +13,17 @@ var CustomizeStory = function() {
 
 CustomizeStory.prototype = Object.create(Story.prototype);
 CustomizeStory.prototype.constructor = CustomizeStory;
-CustomizeStory.prototype['@ajax'] = function(args) {
-    var url = args[0];
-    this.callbacks.push(function(data, callback) {
+CustomizeStory.prototype['@ajax'] = function(url) {
+    return function(data, callback) {
         mockajax(url, data, callback)
-    })
+    }
 };
+
+
+/**********************************/
 
 var obj = {
     container: {},
-
-    url: '/a/b',
 
     render: function(data) {
         return this.container.innerHTML = '<div>' + data.name + '</div>';
@@ -36,12 +36,30 @@ var obj = {
     }
 };
 
-describe('when', function() {
-    it('should then work', function() {
-        var s = new CustomizeStory(obj);
 
-        s.when('getAjaxParams @ajax url @then render').start(function(html) {
-            console.log(html)
-        })
-    })
-});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var s = new CustomizeStory(obj);
+
+s.when('getAjaxParams @ajax /a/b/c @then render').start(function(html) {
+    console.log(html)
+})

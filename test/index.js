@@ -4,16 +4,6 @@ var events = require('backbone-events');
 var obj = {
     container: {},
 
-    log: function(o) {
-        console.log('log:' + o)
-        return o;
-    },
-
-    write: function(o) {
-        console.log('write:' + o)
-        return o;
-    },
-
     element: Object.create(events),
 
     ajax: function(params, callback) {
@@ -34,20 +24,47 @@ var obj = {
     }
 };
 
-describe('when', function() {
-    it('should then work', function() {
 
-        var s = new Story(obj);
 
-        s.when('@then element @on keypress keyup').then(function() {
-            return this.num
-        }).then('log write').start();
 
-        obj.element.trigger('keypress', 'on keypress11');
 
-        s.when('getAjaxParams @then ajax @then render log').start(function() {
-            console.log(this.container)
-        })
 
-    })
-});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var s = new Story(obj);
+
+
+
+s.when('element @on keypress @then getAjaxParams @then ajax @then render').start(function() {
+    console.log(this.container)
+})
+
+obj.element.trigger('keypress');
