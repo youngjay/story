@@ -25,46 +25,9 @@ var obj = {
 };
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 var s = new Story(obj);
 
 
-
-s.when('element @on keypress @then getAjaxParams @then ajax @then render').start(function() {
+s.when('getAjaxParams @then ajax @then render').start(function() {
     console.log(this.container)
 })
-
-obj.element.trigger('keypress');

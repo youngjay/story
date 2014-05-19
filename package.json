@@ -9,6 +9,11 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "mocha": "^1.18.2",
+    "browserify": "^3.46.0",
+    "gulp": "^3.6.2",
+    "vinyl-source-stream": "^0.1.1",
+    "gulp-livereload": "^1.5.0",
     "backbone-events": "0.0.0"
   }
 }

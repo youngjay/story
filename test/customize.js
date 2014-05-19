@@ -18,6 +18,11 @@ CustomizeStory.prototype['@ajax'] = function(url) {
         mockajax(url, data, callback)
     }
 };
+CustomizeStory.prototype['@live'] = function(selector, event) {
+    return function(target, callback) {
+        target.live(selector, event, callback)
+    }
+};
 
 
 /**********************************/
@@ -35,25 +40,6 @@ var obj = {
         }
     }
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
